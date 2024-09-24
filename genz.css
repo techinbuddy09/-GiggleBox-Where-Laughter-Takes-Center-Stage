@@ -1,0 +1,108 @@
+/* General styles */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background styling with transparency */
+body {
+    background: url('Untitled\ design\ \(25\).png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Adds a dark transparent overlay */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container styling */
+.container {
+    width: 600px; /* Increased width of the container */
+    padding: 40px; /* More padding for larger content */
+    color: white;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2); /* Adds transparency to the container */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+}
+
+/* Button styling */
+button {
+    width: 180px; /* Increased button width */
+    height: 50px; /* Increased button height */
+    background-color: rgb(232, 232, 15);
+    color: rgb(0, 0, 0);
+    border: none;
+    outline: none;
+    border-radius: 8px; /* Slightly more rounded corners */
+    font-size: 18px; /* Increased font size */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: rgb(255, 203, 5); /* Lighter background on hover */
+    transform: scale(1.1); /* Grows on hover */
+}
+
+/* Image styling */
+/* Image styling */
+img {
+    width: 40%; /* Increased size of the image */
+    border-radius: 60%; /* Makes the image circular */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), /* 3D shadow effect */
+                0 6px 6px rgba(0, 0, 0, 0.3); /* Adds depth */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth transition on hover */
+}
+
+/* Interactive hover effect for image */
+img:hover {
+    transform: rotate(360deg) scale(1.2); /* Spins and grows the image on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), /* Makes the shadow deeper when hovered */
+                0 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Joke text styling */
+#get {
+    font-size: 24px; /* Increased font size for jokes */
+    margin-top: 30px;
+    min-height: 60px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    img {
+        width: 40%;
+    }
+
+    button {
+        width: 130px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    #get {
+        font-size: 20px;
+    }
+}

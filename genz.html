@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickle Me Jokes</title>
+    <link rel="stylesheet" href="genz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay">
+        <div class="container">
+            <img src="Untitled design (24).png" alt="Smile Icon">
+            <h3 id="get"></h3>
+            <button onclick="myFun()">Tickle Me Jokes</button>
+        </div>
+    </div>
+
+    <!-- Background music element (will play continuously) -->
+    <audio id="background-music" loop>
+        <source src="54-TIMING.mp3" type="audio/mp3"> <!-- Replace with your actual audio file -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        let get = document.getElementById("get");
+
+        // Fetch joke and display it on the page
+        async function myFun() {
+            let getting = await fetch('https://icanhazdadjoke.com/', {
+                headers: {
+                    accept: "application/json"
+                }
+            });
+
+            let joke = await getting.json();
+            let data = joke.joke;
+
+            // Display joke in the HTML
+            get.innerHTML = data;
+
+            // Play sound when joke is generated
+            playSound();
+
+            // Speak the joke out loud
+            speakJoke(data);
+        }
+
+        // Function to play sound effect when a joke is generated
+        function playSound() {
+            let audio = new Audio('your-sound-effect.mp3');  // Make sure this path is correct
+            audio.play().catch((error) => {
+                console.error("Audio playback failed: ", error);  // Error handling for playback
+            });
+        }
+
+        // Function to speak the joke out loud using Web Speech API and start background music
+        function speakJoke(joke) {
+            let speech = new SpeechSynthesisUtterance(joke);
+            speech.pitch = 1.8;  // Playful pitch
+            speech.rate = 1.2;   // Slightly faster speed
+
+            let backgroundMusic = document.getElementById('background-music');
+
+            // Start the background music when joke is spoken (it will loop continuously)
+            backgroundMusic.play().catch((error) => {
+                console.error("Background music playback failed: ", error);
+            });
+
+            // Speak the joke
+            speechSynthesis.speak(speech);
+        }
+
+        // Initial function call to get the first joke
+        myFun();
+    </script>
+</body>
+</html>
