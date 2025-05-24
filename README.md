@@ -22,4 +22,4 @@ GiggleBox is a fun and interactive jokes generator web application designed to b
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/gigglebox.git
+   git clone https://github.com/techinbuddy09/gigglebox.git
